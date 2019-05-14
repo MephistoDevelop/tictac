@@ -6,11 +6,16 @@ class Board
     @plays = {}
     @winner = false
   end
-
   def play(square)
     if(square == 1)
       @winner = true
     end
-    puts "PLAYED ON #{square}"
+    @plays[square] = @plays.length == 0 || (@plays.length + 1)%2 != 0
+  end
+  def get_plays
+      return @plays
+  end
+  def get_active
+    return @plays.length == 0 || (@plays.length + 1)%2 != 0
   end
 end

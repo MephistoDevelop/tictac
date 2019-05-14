@@ -28,7 +28,7 @@ class UI
     puts "~~~~~"
     puts "CHOOSE EMPTY SQUARE"
     option = gets.chomp
-    unless option.to_i.between?(1, 9)
+    unless option.to_i.between?(1,9)
       puts "CHOOSE EMPTY SQUARE"
       option = gets.chomp
     else
@@ -36,7 +36,21 @@ class UI
     end
   end
   def show_board(board)
-    puts "SHOW BOARD"
+   plays = board.get_plays
+   puts ""
+   puts " #{plays[1] == nil ? "1" :  render_player(plays[1]) } | #{plays[2] == nil ? "2" :  render_player(plays[2]) } | #{plays[3] == nil ? "3" :  render_player(plays[3]) } "
+   puts "---|---|---"
+   puts " #{plays[4] == nil ? "4" :  render_player(plays[4]) } | #{plays[5] == nil ? "5" :  render_player(plays[5]) } | #{plays[6] == nil ? "6" :  render_player(plays[6]) } "
+   puts "---|---|---"
+   puts " #{plays[7] == nil ? "7" : render_player( plays[7]) } | #{plays[8] == nil ? "8" :  render_player(plays[8]) } | #{plays[9] == nil ? "9" :  render_player(plays[9]) } "
+   puts ""
+  end
+  def render_player(player)
+    if player
+      return "X"
+    else
+      return "O"
+    end
   end
   def show_result(board)
     puts "THE WINNER IS"
