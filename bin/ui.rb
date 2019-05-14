@@ -22,7 +22,8 @@ class UI
     end
   end
   def new_round(board)
-    puts "❌ MOVES show who is playing"
+    puts ""
+    puts "#{board.get_active ? "❌ " : "⭕️ "} MOVES"
     puts show_board(board)
     puts ""
     puts "~~~~~"
@@ -46,11 +47,7 @@ class UI
    puts ""
   end
   def render_player(player)
-    if player
-      return "X"
-    else
-      return "O"
-    end
+    player ? "❌" : "⭕️"
   end
   def show_result(board)
     puts "THE WINNER IS"
