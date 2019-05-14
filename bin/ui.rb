@@ -29,7 +29,7 @@ class UI
     puts "~~~~~"
     puts "CHOOSE EMPTY SQUARE"
     option = gets.chomp
-    while option.to_i.between?(1,9) && board.check_square(option.to_i)
+    unless option.to_i.between?(1,9)
       puts "CHOOSE EMPTY SQUARE"
       option = gets.chomp
     end
