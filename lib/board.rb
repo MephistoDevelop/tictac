@@ -7,10 +7,11 @@ class Board
     @winner = false
   end
   def play(square)
-    if(square == 1)
-      @winner = true
+    if(@plays[square] == nil)
+      @plays[square] = @plays.length == 0 || (@plays.length + 1)%2 != 0
+    else
+      false
     end
-    @plays[square] = @plays.length == 0 || (@plays.length + 1)%2 != 0
   end
   def get_plays
       return @plays

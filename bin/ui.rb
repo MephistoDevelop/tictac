@@ -22,7 +22,8 @@ class UI
     end
   end
   def new_round(board)
-    puts "❌ MOVES show who is playing"
+    puts ""
+    puts "#{board.get_active ? "❌ " : "⭕️ "} MOVES"
     puts show_board(board)
     puts ""
     puts "~~~~~"
@@ -31,9 +32,8 @@ class UI
     unless option.to_i.between?(1,9)
       puts "CHOOSE EMPTY SQUARE"
       option = gets.chomp
-    else
-      return option.to_i
     end
+    option.to_i
   end
   def show_board(board)
    plays = board.get_plays
@@ -46,11 +46,7 @@ class UI
    puts ""
   end
   def render_player(player)
-    if player
-      return "X"
-    else
-      return "O"
-    end
+    player ? "❌" : "⭕️"
   end
   def show_result(board)
     puts "THE WINNER IS"
