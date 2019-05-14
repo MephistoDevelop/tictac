@@ -1,14 +1,16 @@
 class Board
-  attr_accessor :playing , :check_winner
-  attr_accessor :plays
+  attr_accessor :draw, :playing, :plays, :winner
   def initialize
+    @draw = false
     @playing = true
     @plays = {}
-    puts ""
-    puts "Game starting"
-    puts "&&&&&&&&&&&&&"
-    puts ""
+    @winner = false
   end
 
-
+  def play(square)
+    if(square == 1)
+      @winner = true
+    end
+    puts "PLAYED ON #{square}"
+  end
 end
