@@ -37,6 +37,7 @@ class UI
   end
   def show_board(board)
    plays = board.get_plays
+
    puts ""
    puts " #{plays[1] == nil ? "1" :  render_player(plays[1]) } | #{plays[2] == nil ? "2" :  render_player(plays[2]) } | #{plays[3] == nil ? "3" :  render_player(plays[3]) } "
    puts "---|---|---"
@@ -49,7 +50,12 @@ class UI
     player ? "❌" : "⭕️"
   end
   def show_result(board)
-    puts "THE WINNER IS"
+    show_board(board)
+    if board.draw
+      puts "IT'S A DRAW !!"
+    elsif board.winner
+     puts "THE WINNER IS #{render_player(board.last_play.first)}"
+    end
   end
   def quit
     puts "EXIT"
