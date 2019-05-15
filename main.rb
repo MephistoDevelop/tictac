@@ -3,7 +3,7 @@ require "./lib/board"
 
 ui = UI.new("GAME")
 
-if ui.new_game
+while ui.new_game do
   board = Board.new
   while board.playing
     board.play(ui.new_round(board))
@@ -12,8 +12,8 @@ if ui.new_game
       break
     end
   end
-  ui.new_game
-else
-  ui.quit
-  exit
 end
+
+ui.quit
+
+exit
