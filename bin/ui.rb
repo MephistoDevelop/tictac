@@ -1,66 +1,66 @@
 class UI
-  def initialize(title)
-    puts "&&&&&&&&&&&&&"
-    puts "#{title} starting"
-    puts "&&&&&&&&&&&&&"
-    puts ""
+  def initialize
+    puts "LOADING UI"
   end
-  def new_game
+  def ask_square(board)
+    show_board(board)
+    puts "~~~~~"
+    puts "CHOOSE EMPTY SQUARE"
+    puts ""
+    option = gets.chomp
+    unless option.to_i.between?(1,9)
+      puts "CHOOSE EMPTY SQUARE"
+      puts ""
+      option = gets.chomp
+    end
+    option.to_i
+  end
+  def new_game?
     puts "====================="
     puts "New Game?"
     puts " 1:START"
     puts " 0:EXIT"
     puts "====================="
     puts ""
-    @input = gets.chomp.to_i
-    case @input
+    input = gets.chomp.to_i
+    case input
     when 1
       true
     else
-      @play = false
       false
     end
   end
-  def new_round(board)
-    puts ""
-    puts "#{board.get_active ? "❌ " : "⭕️ "} MOVES"
-    puts show_board(board)
-    puts ""
-    puts "~~~~~"
-    puts "CHOOSE EMPTY SQUARE"
-    option = gets.chomp
-    unless option.to_i.between?(1,9)
-      puts "CHOOSE EMPTY SQUARE"
-      option = gets.chomp
-    end
-    option.to_i
-  end
   def show_board(board)
-    plays = board.get_plays
+    plays = board.merge_plays
     puts ""
-    puts " #{plays[1] == nil ? "1" :  render_player(plays[1]) } | #{plays[2] == nil ? "2" :  render_player(plays[2]) } | #{plays[3] == nil ? "3" :  render_player(plays[3]) } "
+    puts " #{plays[1] == nil ? "1" : plays[1] } | #{plays[2] == nil ? "2" : plays[2] } | #{plays[3] == nil ? "3" : plays[3] } "
     puts "---|---|---"
-    puts " #{plays[4] == nil ? "4" :  render_player(plays[4]) } | #{plays[5] == nil ? "5" :  render_player(plays[5]) } | #{plays[6] == nil ? "6" :  render_player(plays[6]) } "
+    puts " #{plays[4] == nil ? "4" : plays[4] } | #{plays[5] == nil ? "5" : plays[5] } | #{plays[6] == nil ? "6" : plays[6] } "
     puts "---|---|---"
-    puts " #{plays[7] == nil ? "7" : render_player( plays[7]) } | #{plays[8] == nil ? "8" :  render_player(plays[8]) } | #{plays[9] == nil ? "9" :  render_player(plays[9]) } "
+    puts " #{plays[7] == nil ? "7" : plays[7] } | #{plays[8] == nil ? "8" : plays[8] } | #{plays[9] == nil ? "9" : plays[9] } "
     puts ""
   end
-  def render_player(player)
-    if player
-      return "❌"
-    else
-      return "⭕️"
-    end
-  end
-  def show_result(board)
+  def show_winner(board)
     show_board(board)
-    if board.draw
-      puts "IT'S A DRAW !!"
-    elsif board.winner
-      puts "THE WINNER IS #{board.get_last_play ? "❌" : "⭕️"}"
-    end
+    puts ""
+    puts "The whinner is #{board.winner}"
+    puts ""
+  end
+  def start
+    puts ""
+    puts "GAME STARTING! ❌  goes first!"
+    puts ""
   end
   def quit
-    puts "EXIT"
+    puts "---"
+    puts "Follow us on Github! @mephistodevelop @noincomedev"
+    puts "---"
+    exit
+  end
+  def show_draw(board)
+    show_board(board)
+    puts ""
+    puts "ITS A DRAW"
+    puts ""
   end
 end
