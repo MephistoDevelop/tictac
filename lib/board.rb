@@ -38,47 +38,38 @@ class Board
     plays.length
   end
   def check_winner
-    check_horizontal ||  check_vertical || check_cross
-  end
-  def check_horizontal
     plays = merge_plays
-    winner = false
-    for i in [1,4,7] do
-      if plays[i] != nil
-        if(plays[i] == plays[i+1] && plays[i+1] == plays[i+2])
-          winner = true
-          break if winner
-        end
+    arr_player=[]
+    arr_player2=[]
+        plays.each{|x,y|
+          if(y=='⭕️')
+            arr_player2.push(x)
+          end }
+          plays.each{|x,y|
+
+            if(y=='❌')
+              arr_player.push(x)
+            end }
+  if get_plays_count > 0
+    @win = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+    @win.each{|array|
+     if arr_player.size > 2
+        sort_player = (arr_player & array).sort
+        #puts "jugador 1 gana"
       end
+      if arr_player2.size > 2
+        sort_player2 = (arr_player2 & array).sort
+        #puts "jugador 2 gana"
+      end
+      # puts "Esto son win pathern #{array}: y esto es player1 #{  arr_player } : player2 #{ arr_player2 } \n sort_player : #{sort_player}: sort_player2 : #{sort_player2} "
+      if (array==sort_player || array==sort_player2 )
+        return true
+      end
+      }
     end
-    winner
+      return false
   end
-  def check_vertical
-    plays = merge_plays
-    winner = false
-    for i in [1,2,3] do
-      if(plays[i] != nil)
-      if (plays[i] == plays[i+3] && plays[i+3] == plays[i+6])
-        winner = true
-        break if winner
-      end
-    end
-    end
-    winner
-  end
-  def check_cross
-    plays = merge_plays
-    winner = false
-    if(plays[1] != nil && plays[3] != nil && plays[5] != nil || plays[7] != nil && plays[9] != nil )
-      if (plays[1] ==plays[5] && plays[1] ==plays[9] )
-        winner = true
-      end
-      if (plays[3] == plays[5] && plays[3] == plays[7] )
-      winner = true
-      end
-    end
-    winner
-  end
+
   def winner
     return @player2.name if get_plays_count % 2 == 0
     @player1.name
