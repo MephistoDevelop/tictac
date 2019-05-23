@@ -1,8 +1,10 @@
 require './lib/player.rb'
 
 RSpec.describe Player do
-  describe "#add" do
-    it "returns false if the game start" do
-    end
+  describe "#name" do
+    it "returns players name" do
+      player = Player.new("X")
+      expect(player.name).to eql("X")
+      end
     end
   end
