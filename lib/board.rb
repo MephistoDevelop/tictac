@@ -1,23 +1,20 @@
 class Board
   attr_accessor :player1
-  attr_accessor :player2
+  attr_accessor :player2, :plays
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
+    @@plays = {}
   end
   def check_play(square)
-    plays = merge_plays
-    return true if plays[square]
+    return true if @@plays[square]
     false
-  end
-  def merge_plays
-    @player1.plays.merge(@player2.plays)
   end
   def play(square)
     if ((get_plays_count + 1) % 2 != 0)
-      @player1.make_play(square)
+    make_play(square)
     else
-      @player2.make_play(square)
+    make_play(square)
     end
   end
   def playing
@@ -34,21 +31,18 @@ class Board
     end
   end
   def get_plays_count
-    plays = merge_plays
-    plays.length
+    @@plays.length
   end
   def check_winner
-    plays = merge_plays
     arr_player=[]
     arr_player2=[]
-    plays.each{|x,y|
+    @@plays.each{|x,y|
         if(y=='⭕️')
           arr_player2.push(x)
-          end }
-    plays.each{ |x,y|
-      if(y=='❌')
-        arr_player.push(x)
-         end }
+        elsif(y=='❌')
+            arr_player.push(x)
+             end
+        }
     if get_plays_count > 0
     @win = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
     @win.each{|array|
@@ -68,5 +62,19 @@ class Board
   def winner
     return @player2.name if get_plays_count % 2 == 0
     @player1.name
+  end
+  def make_play(square)
+    if (get_plays_count % 2 == 0)
+      @name = '❌'
+    else
+      @name = '⭕️'
+    end
+    @@plays[square] = @name
+  end
+  def plays
+    @@plays
+  end
+  def set_plays(plays)
+    @@plays = plays
   end
 end
