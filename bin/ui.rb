@@ -31,7 +31,7 @@ class UI
     end
   end
   def show_board(board)
-    plays = board.merge_plays
+    plays = board.plays
     puts ""
     puts " #{plays[1] == nil ? "1" : plays[1] } | #{plays[2] == nil ? "2" : plays[2] } | #{plays[3] == nil ? "3" : plays[3] } "
     puts "---|---|---"
