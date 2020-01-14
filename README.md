@@ -1,19 +1,3 @@
-#Tic Tac Toe Game
-
-### Basic Ruby Repository
-
-**Description**
-
-Simple repository in ruby language to play a simple Tic-Tac-Toe Game
-
-# Languaje
-
-Ruby
-
-#Instruction
-
-To play the game, run `ruby ~/bin/main` on your terminal.
-
 # Tic-Tac-Toe Terminal Game
 
 > Project taked from Microverse Curriculum from the The Odin Page project site.
