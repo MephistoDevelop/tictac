@@ -1,1 +1,2 @@
-puts "hello World !!";
+puts "Hello World !"
+puts "Tic Tac Toe Terminal Game  !!";
