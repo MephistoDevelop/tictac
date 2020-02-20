@@ -22,9 +22,17 @@ class UI
     puts " 0:EXIT"
     puts "====================="
     puts ""
+
     input = gets.chomp.to_i
     case input
     when 1
+      puts "====================="
+      puts "Write Player 1 Name: "
+      @@player1_name = gets.chomp
+      puts "====================="
+      puts "Write Player 2 Name: "
+      @@player2_name = gets.chomp
+      puts "====================="
       true
     else
       false
@@ -48,7 +56,7 @@ class UI
   end
   def start
     puts ""
-    puts "GAME STARTING! ❌  goes first!"
+    puts "GAME STARTING!, Player #{@@player1_name} with  ❌  goes first!"
     puts ""
   end
   def quit

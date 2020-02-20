@@ -4,11 +4,12 @@ require_relative "../lib/player"
 
 ui = UI.new
 
+
 while ui.new_game? do
   player1 = Player.new("❌")
   player2 = Player.new("⭕️")
   board = Board.new(player1, player2)
-  ui.start
+   ui.start
   while board.playing
     square = ui.ask_square(board)
     while board.check_play(square)
