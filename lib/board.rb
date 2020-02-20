@@ -38,6 +38,7 @@ class Board
     @plays.length
   end
 
+  # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
   def winner?
     arr_player = []
     arr_player2 = []
@@ -58,6 +59,7 @@ class Board
     end
     false
   end
+  # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
   def winner
     return @player2.name if make_plays_count.even?
