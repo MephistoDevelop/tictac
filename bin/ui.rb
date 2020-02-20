@@ -51,7 +51,12 @@ class UI
   def show_winner(board)
     show_board(board)
     puts ""
-    puts "The whinner is #{board.winner}"
+    if(board.winner == '❌')
+      puts "The whinner is #{@@player1_name}"
+    else
+      puts "The whinner is #{@@player2_name}"
+    end
+
     puts ""
   end
   def start
