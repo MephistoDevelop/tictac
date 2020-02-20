@@ -22,19 +22,17 @@ class Board
   def playing
     return false if check_winner || draw?
 
-
     true
   end
 
   def draw?
-
     case gets_plays_count
     when 9
       return true unless check_winner
+
       false
     end
   end
-
 
   def gets_plays_count
     @plays.length
