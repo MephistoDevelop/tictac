@@ -45,12 +45,24 @@ end
 def show_board(board)
   plays = board.plays
   puts ''
-  puts " #{plays[1].nil? ? '1' : plays[1]} | #{plays[2].nil? ? '2' : plays[2]} | #{plays[3].nil? ? '3' : plays[3]} "
+  check_line1(plays)
   puts '---|---|---'
-  puts " #{plays[4].nil? ? '4' : plays[4]} | #{plays[5].nil? ? '5' : plays[5]} | #{plays[6].nil? ? '6' : plays[6]} "
+  check_line2(plays)
   puts '---|---|---'
-  puts " #{plays[7].nil? ? '7' : plays[7]} | #{plays[8].nil? ? '8' : plays[8]} | #{plays[9].nil? ? '9' : plays[9]} "
+  check_line3(plays)
   puts ''
+end
+
+def check_line1(plays)
+  puts " #{plays[1].nil? ? '1' : plays[1]} | #{plays[2].nil? ? '2' : plays[2]} | #{plays[3].nil? ? '3' : plays[3]} "
+end
+
+def check_line2(plays)
+  puts " #{plays[4].nil? ? '4' : plays[4]} | #{plays[5].nil? ? '5' : plays[5]} | #{plays[6].nil? ? '6' : plays[6]} "
+end
+
+def check_line3(plays)
+  puts " #{plays[7].nil? ? '7' : plays[7]} | #{plays[8].nil? ? '8' : plays[8]} | #{plays[9].nil? ? '9' : plays[9]} "
 end
 
 def show_winner(board)
