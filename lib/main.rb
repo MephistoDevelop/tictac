@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require_relative './ui'
-require_relative '../lib/board'
-require_relative '../lib/player'
+require_relative './board'
+require_relative './player'
 
 ui = UI.new
 
@@ -16,7 +16,7 @@ while ui.new_game?
     square = ui.ask_square(board) while board.check_play(square)
     board.play(square)
   end
-  if board.winner?
+  if board.check_winner
     ui.show_winner(board)
   else
     ui.show_draw(board)

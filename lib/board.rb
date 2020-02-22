@@ -26,7 +26,9 @@ class Board
   end
 
   def draw?
+    puts 'Draw?:'
     case gets_plays_count
+
     when 9
       return true unless check_winner
 

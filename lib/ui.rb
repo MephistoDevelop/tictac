@@ -32,10 +32,10 @@ class UI
     when 1
       puts '====================='
       puts 'Write Player 1 Name: '
-      @@player1_name = gets.chomp
+      @player1_name = gets.chomp
       puts '====================='
       puts 'Write Player 2 Name: '
-      @@player2_name = gets.chomp
+      @player2_name = gets.chomp
       puts '====================='
       true
     else
@@ -56,20 +56,20 @@ class UI
 
   def show_winner(board)
     show_board(board)
-    puts ""
-    if(board.winner == '❌')
-      puts "The whinner is #{@@player1_name}"
-    else
-      puts "The whinner is #{@@player2_name}"
-    end
 
-    puts ""
-
+    puts ''
+    name = if board.gets_plays_count.even?
+             @player2_name
+           else
+             @player1_name
+           end
+    puts "The whinner is #{name}"
+    pts ''
   end
 
   def start
     puts ''
-    puts "GAME STARTING!, Player #{@@player1_name} with  ❌  goes first!"
+    puts "GAME STARTING!, Player #{@player1_name} with  ❌  goes first!"
     puts ''
   end
 
