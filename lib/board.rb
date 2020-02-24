@@ -16,30 +16,30 @@ class Board
   end
 
   def play(square)
-    make_play(square)
+    make_play(square) if (make_plays_count + 1).odd?
   end
 
   def playing
-    return false if check_winner || draw?
+    return false if winner? || draw?
 
     true
   end
 
   def draw?
-    case gets_plays_count
+    case make_plays_count
     when 9
-      return true unless check_winner
+      return true unless winner?
 
       false
     end
   end
 
-  def gets_plays_count
+  def make_plays_count
     @plays.length
   end
-  # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
-  def check_winner
+  # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+  def winner?
     arr_player = []
     arr_player2 = []
     @plays.each do |x, y|
@@ -49,8 +49,7 @@ class Board
         arr_player.push(x)
       end
     end
-
-    if gets_plays_count.positive?
+    if make_plays_count.positive?
       @win = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
       @win.each do |array|
         sort_player = (arr_player & array).sort if arr_player.size > 2
@@ -60,25 +59,30 @@ class Board
     end
     false
   end
-
   # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
   def winner
-    return @player2.name if gets_plays_count.even?
+    return @player2.name if make_plays_count.even?
 
     @player1.name
   end
 
+  def check_player
+    if (make_plays_count + 1 % 2).zero?
+      '❌'
+    else
+      '⭕️'
+    end
+  end
+
   def make_play(square)
-    @name = if gets_plays_count.even?
+    @name = if make_plays_count.even?
               '❌'
             else
               '⭕️'
             end
     @plays[square] = @name
-  end
 
-  def make_plays(plays)
-    @plays = plays
+    puts "Player #{@name} Turn"
   end
 end
