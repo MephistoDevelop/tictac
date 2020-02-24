@@ -4,21 +4,15 @@
 
 ![screenshot](./screenshot.png)
 
-Javascript with Webpack project from The Odin Project [curriculum](https://www.theodinproject.com/lessons/restaurant-page)
+Ruby project from The Odin Project [curriculum](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
 ## Built With Ruby language
 
 - Ruby
 
-## Live Demo
-
-[Live Demo Link]()
-
 ## Getting Started
 
--To start to use this project download this repository to your computer and decompress all the files and open your terminal from the containing folder and run the commands published below on prerequisites section.
-
-#### Tic Tac-Toe game Rules :
+### Tic Tac-Toe game Rules :
 
 the game start with 2 players, player 'X' and player 'O'
 
@@ -31,6 +25,8 @@ the player that does 3 signs first on line whatever it be ,could be horizontal, 
 the player can't put a sign where not empty cell.
 
 ### Prerequisites
+
+-To start to use this project download this repository to your computer and decompress all the files and open your terminal from the containing folder and run the commands published below on prerequisites section.
 
 -before to run this project you will need to install ruby environment and configure the ruby server on your computer to start to use this repository
 
