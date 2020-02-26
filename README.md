@@ -2,9 +2,8 @@
 
 > Project taken from Microverse Curriculum from the The Odin Page project site.
 
-![screenshot](./screenshot.png)
 
-Ruby project from The Odin Project [curriculum](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
+Tic tac toe terminal game project from The Odin Project [curriculum](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
 ## Built With Ruby language
 
@@ -12,7 +11,9 @@ Ruby project from The Odin Project [curriculum](https://www.theodinproject.com/c
 
 ## Getting Started
 
-### Tic Tac-Toe game Rules :
+
+#### Tic Tac-Toe game Rules :
+
 
 the game start with 2 players, player 'X' and player 'O'
 
@@ -26,7 +27,8 @@ the player can't put a sign where not empty cell.
 
 ### Prerequisites
 
--To start to use this project download this repository to your computer and decompress all the files and open your terminal from the containing folder and run the commands published below on prerequisites section.
+
+-To start to use this proyect download this repository to your computer and descompress all the files and open your terminal from the containing folder and run the commands published below on prerequisites section.
 
 -before to run this project you will need to install ruby environment and configure the ruby server on your computer to start to use this repository
 
